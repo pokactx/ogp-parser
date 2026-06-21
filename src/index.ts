@@ -11,7 +11,6 @@ type Env = {
   Bindings: {
     RATE_LIMITER: RateLimiter
     ALLOWED_ORIGINS: string
-    API_KEY: string
   }
 }
 
@@ -33,15 +32,6 @@ app.use('*', async (c, next) => {
 app.use('*', async (c, next) => {
   const origins = c.env.ALLOWED_ORIGINS.split(',').map((s) => s.trim())
   return cors({ origin: origins })(c, next)
-})
-
-// API key 認証
-app.use('/ogp', async (c, next) => {
-  const key = c.req.header('X-Api-Key') ?? ''
-  if (!c.env.API_KEY || key !== c.env.API_KEY) {
-    return c.json({ error: 'forbidden' }, 403)
-  }
-  return next()
 })
 
 app.onError((err: unknown, c) => {
