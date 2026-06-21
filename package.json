@@ -1,0 +1,26 @@
+{
+  "name": "ogp-parser",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint src",
+    "fmt": "oxlint --fix src",
+    "prepare": "lefthook install"
+  },
+  "dependencies": {
+    "hono": "^4.12.26"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "lefthook": "latest",
+    "oxlint": "latest",
+    "typescript": "latest",
+    "wrangler": "latest"
+  }
+}

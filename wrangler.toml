@@ -1,0 +1,14 @@
+name = "ogp-parser"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+
+[ratelimits.simple]
+limit = 60
+period = 60
+
+[vars]
+ALLOWED_ORIGINS = "https://pokactx.run"
